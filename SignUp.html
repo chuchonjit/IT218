@@ -1,0 +1,123 @@
+<html>
+   
+   <head>
+      <title>Form Validation</title>
+      
+      <script type="text/javascript">
+            
+     
+      function validate()
+      {
+      
+         if( document.myForm.Name.value == "" )
+         {
+            alert( "Please provide your First name!" );
+            document.myForm.Name.focus();
+            return false;
+         }
+         if( document.myForm.lname.value == "" )
+         {
+            alert( "Please provide your Last name!" );
+            document.myForm.lname.focus();
+            return false;
+         }
+         
+         if( document.myForm.Email.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.Email.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.Pin.value == "" ||
+         isNaN( document.myForm.Pin.value ) ||
+         document.myForm.Pin.value.length == 9 )
+         {
+            alert( "Please provide a 10-digit phone number " );
+            document.myForm.Pin.focus() ;
+            return false;
+         }
+         if( document.myForm.birthday.value == "" )
+         {
+            alert( "Please provide your Birth day!" );
+            document.myForm.Email.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.atype.value == "-1" )
+         {
+            alert( "Please provide your Gender!" );
+            return false;
+         }
+         return( true );
+      }
+  
+      </script>
+      
+	<style>
+	body {background-color:#d6cbd3; } 
+	table, th, td{
+		width:30%
+		font-family:calibri;
+		border-collapse:collapse;
+		padding:20px;
+		margin: 50px auto;
+		background:#d5e1df;	
+		text-align:center;
+    color:indigo;
+		}
+	.btn{padding:10px;width:100%}	
+	</style>
+   </head>
+   
+   <body >
+      <form action="getUserName.php" name="myForm" method = "POST "onsubmit="return(validate());">
+         <table align = "center">
+         <tr bgcolor ="#E8EDFD">
+    <th colspan = "4">SIGN UP </th>
+  </tr>
+            
+            <tr>
+               <td align="right">First Name</td>
+               <td><input type="text" name="Name" /></td>
+            </tr>
+            <tr>
+               <td align="right">Last Name</td>
+               <td><input type="text" name="lname" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">Email</td>
+               <td><input type="text" name="Email" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">Phone Number</td>
+               <td><input type="text" name="Pin" /></td>
+            </tr>
+            <tr>
+               <td align="right">Birthday</td>
+               <td><input type="text" name="birthday" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">Gender</td>
+               <td>
+                  <select name="atype">
+                     <option value="-1" selected>[choose yours]</option>
+                     <option value="1">Male</option>
+                     <option value="2">Female</option>
+                  </select>
+               </td>
+            </tr>
+            
+            <tr>
+               <td align="justify"></td>
+               <td><input type="submit" value="Submit" class= "btn" name = "Submit"/></td>
+            </tr>
+            
+         </table>
+      </form>
+      
+   </body>
+</html>
